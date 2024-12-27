@@ -241,7 +241,7 @@ async def get_readable_message(
         )
         user_tag = task.listener.tag.replace("@", "").replace("_", " ")
         cancel_task = (
-            f"<code>/{BotCommands.CancelTaskCommand[1]}_{task.gid()}</code>"
+            f"<b>/{BotCommands.CancelTaskCommand[1]}_{task.gid()}</b>"
             if not task.listener.get_chat.has_protected_content
             else f"<b>/{BotCommands.CancelTaskCommand[1]}_{task.gid()}</b>"
         )
@@ -251,7 +251,7 @@ async def get_readable_message(
             and int(config_dict["AUTO_DELETE_MESSAGE_DURATION"]) > 0
         ):
             msg += (
-                f"<b>\n#Reaper{index + start_position}: "
+                f"<b>\n#Reaper{index + start_position} : "
                 f"{escape(f"{task.name()}")}\n</b>"
                 if elapse <= config_dict["AUTO_DELETE_MESSAGE_DURATION"]
                 else f"\n<b>#Reaper{index + start_position}...(Processing)</b>"
@@ -277,7 +277,7 @@ async def get_readable_message(
                 f"\n<code>Past   :</code> {elapsed}"
                 f"\n<code>User   :</code> <b>{user_tag}</b>"
                 f"\n<code>UserID :</code> ||{task.listener.user_id}||"
-                f"\n#{task.listener.mode} {task.engine}</b>"
+                f"\n<b>#{task.listener.mode} {task.engine}</b>"
             )
             if hasattr(
                 task,
@@ -388,11 +388,8 @@ async def get_readable_message(
                 )
     button = buttons.build_menu(8)
     msg += (
-        "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
-        f"<b>CPU</b>: {cpu_percent()}% | "
-        f"<b>FREE</b>: {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}\n"
-        f"<b>RAM</b>: {virtual_memory().percent}% | "
-        f"<b>UPTM</b>: {get_readable_time(time() - bot_start_time)}"
+        "\n"
+        f"<b>CPU</b>: {cpu_percent()}% <b>| FREE</b>: {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)} <b>| UPTM</b>: {get_readable_time(time() - bot_start_time)}"
     )
     return (
         msg,
