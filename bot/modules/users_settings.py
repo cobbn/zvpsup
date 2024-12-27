@@ -424,7 +424,7 @@ async def update_user_settings(query):
     media = (
         f"Thumbnails/{user_id}.jpg"
         if os_path.exists(f"Thumbnails/{user_id}.jpg")
-        else f"https://te.legra.ph/file/237953bad476d0de0b8eb.jpg"
+        else f"https://graph.org/Reaper-07-29"
     )
     await query.message.edit_media(
         media=InputMediaPhoto(
@@ -452,7 +452,7 @@ async def user_settings(client, message):
     media = (
         f"Thumbnails/{user_id}.jpg"
         if os_path.exists(f"Thumbnails/{user_id}.jpg")
-        else f"https://te.legra.ph/file/237953bad476d0de0b8eb.jpg'"
+        else f"https://graph.org/Reaper-07-29"
     )
     usetMsg = await message.reply_photo(
         media,
