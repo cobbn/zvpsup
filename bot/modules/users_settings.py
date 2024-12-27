@@ -373,9 +373,9 @@ async def get_user_settings(from_user):
     )
 
     text = f"""
-<u>Settings for {name}</u>
+<b>Settings for {name}</b>
 
-<code>TG Premium Status:</code> <b>{IS_PREMIUM_USER}</b>
+<b>TG Premium Status : {IS_PREMIUM_USER}</b>
 
 <code>Leech Type       :</code> <b>{ltype}</b>
 <code>Leech Prefix     :</code> <b>{lprefix}</b>
@@ -424,7 +424,7 @@ async def update_user_settings(query):
     media = (
         f"Thumbnails/{user_id}.jpg"
         if os_path.exists(f"Thumbnails/{user_id}.jpg")
-        else f"{def_media(JAVA.encode()).decode()}"
+        else f"https://te.legra.ph/file/237953bad476d0de0b8eb.jpg"
     )
     await query.message.edit_media(
         media=InputMediaPhoto(
@@ -452,7 +452,7 @@ async def user_settings(client, message):
     media = (
         f"Thumbnails/{user_id}.jpg"
         if os_path.exists(f"Thumbnails/{user_id}.jpg")
-        else f"{def_media(JAVA.encode()).decode()}"
+        else f"https://te.legra.ph/file/237953bad476d0de0b8eb.jpg'"
     )
     usetMsg = await message.reply_photo(
         media,
@@ -981,7 +981,7 @@ async def edit_user_settings(client, query):
             position="footer"
         )
         text = f"""
-<b><u>Leech Settings for {name}</u></b>
+<b>Leech Settings for {name}</b>
 
 <code>Leech Type       :</code> <b>{ltype}</b>
 <code>Leech Split Size :</code> <b>{split_size}</b>
@@ -1040,7 +1040,7 @@ async def edit_user_settings(client, query):
         else:
             rccpath = "None"
         text = f"""
-<b><u>Rclone Settings for {name}</u></b>
+<b>Rclone Settings for {name}</b>
 
 <code>Rclone Config :</code> <b>{rccmsg}</b>
 <code>Rclone Path   :</code> <b>{rccpath}</b>
@@ -1117,7 +1117,7 @@ async def edit_user_settings(client, query):
             else "None"
         )
         text = f"""
-<b><u>Gdrive Tools Settings for {name}</u></b>
+<b>Gdrive Tools Settings for {name}</b>
 
 <code>Gdrive Token   :</code> <b>{tokenmsg}</b>
 

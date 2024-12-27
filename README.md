@@ -318,7 +318,7 @@ programming in Python.
       - **Qbittorrent NOTE**: If your facing ram issues then set limit for `MaxConnections`,
         decrease `AsyncIOThreadsCount`, set limit of `DiskWriteCacheSize` to `32` and decrease `MemoryWorkingSetLimit`
         from qbittorrent.conf or bsetting command.
-      - Open port 8090 in your vps to access webui from any device. username: zee, password: @Z_Mirror
+      - Open port 8090 in your vps to access webui from any device. username: zee, password: @Reaperzclub
 
   **6. Rclone**
 
