@@ -254,7 +254,7 @@ async def get_readable_message(
                 f"<b>\n#Reaper{index + start_position} : "
                 f"{escape(f"{task.name()}")}\n</b>"
                 if elapse <= config_dict["AUTO_DELETE_MESSAGE_DURATION"]
-                else f"\n<b>#Reaper{index + start_position}...(Processing)</b>"
+                else f"\n<pre><b>#Reaper{index + start_position}...({tstatus})</b></pre>"
             )
         else:
            msg += f"<pre language=ReaperLeech>{index + start_position}.{task_name}</pre>"
@@ -271,7 +271,6 @@ async def get_readable_message(
             )
             msg += (
                 f"\n<b>{get_progress_bar_string(progress)} » {task.speed()}</b>"
-                f"\n<code>Status :</code> <b>{tstatus}</b>"
                 f"\n<code>Done   :</code> {task.processed_bytes()} of {task.size()}"
                 f"\n<code>ETA    :</code> {task.eta()}"
                 f"\n<code>Past   :</code> {elapsed}"
@@ -327,18 +326,18 @@ async def get_readable_message(
     buttons = ButtonMaker()
     if is_user:
         buttons.data_button(
-            "ʀᴇғʀᴇsʜ",
+            "⏱",
             f"status {sid} ref",
             position="header"
         )
     if not is_user:
         buttons.data_button(
-            "ᴛᴀsᴋs\nɪɴғᴏ",
+            "☰",
             f"status {sid} ov",
             position="footer"
         )
         buttons.data_button(
-            "sʏsᴛᴇᴍ\nɪɴғᴏ",
+            "♺",
             f"status {sid} stats",
             position="footer"
         )
